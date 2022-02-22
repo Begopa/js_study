@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>함수 이용 곡선사각형 그리기</title>
+    <script>
+        window.onload = function() {
+            // canvas 요소 가져오기
+            var canvas = document.getElementById("mycanvas");
+            // canvas 렌더링 컨텍스트 가져오기
+            var ctx = canvas.getContext("2d");
+            //strokeRoundedRect(ctx,10,10,100,80,10);
+            //strokeRoundedRect(ctx,150,10,100,80,30);
+
+            //그래픽스 속성 색상
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "red";
+            ctx.fillStyle = "blue";
+            ctx.strokeRect(10,10,100,80);
+            ctx.fillRect(150,10,100,80);
+        };
+        function strokeRoundedRect(ctx,x,y,width,height,radius) {
+            ctx.beginPath();
+            ctx.moveTo(x+radius,y);
+            ctx.arcTo(x+width,y       ,x+width,y+height,radius);
+            ctx.arcTo(x+width,y+height,x      ,y+height,radius);
+            ctx.arcTo(x      ,y+height,x      ,y       ,radius);
+            ctx.arcTo(x      ,y       ,x+width,y       ,radius);
+            ctx.stroke();
+}
+    </script>
+</head>
+<body>
+    <canvas id="mycanvas" width="640" height="400"></canvas>
+</body>
+</html>
