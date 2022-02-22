@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>이항 변수</title>
+        <script>
+            window.onload = function() {
+                document.getElementById("button").onclick = function() {
+                    var num1 = parseFloat(document.getElementById("number1").value);
+                    var num2 = parseFloat(document.getElementById("number2").value);
+                    var ans = document.getElementById("operator").value;
+                    var judgement = document.getElementById("answer");
+                    
+                    judgement.innerHTML = binaryOperation(num1, num2, ans);
+                };
+            };
+
+            function binaryOperation(a, b, operator) {
+                switch(operator) {
+                    case "+": return a + b;
+                    case "-": return a - b;
+                    case "*": return a * b;
+                    case "/": return a / b;
+                    case "%": return a % b;
+                    case "^": return Math.pow(a,b);
+                    default: return Nan;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <p>숫자 1 : <input type="number" id="number1"></p>
+        <p>숫자 2 : <input type="number" id="number2"></p>
+        <p>이항 변수 : <input type="text" id="operator"></p>
+        <p id="answer">이곳에 판정결과가 표시됩니다.</p>
+        <input type="button" id="button" value="정답 확인하기">
+    </body>
+</html>
